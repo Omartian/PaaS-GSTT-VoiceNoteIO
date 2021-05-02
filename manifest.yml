@@ -1,0 +1,5 @@
+applications:
+- name: PaaS-GSTT-VoiceNoteIO
+  random-route: true
+  path: ./
+  memory: 128M
