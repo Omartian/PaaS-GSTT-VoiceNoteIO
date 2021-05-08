@@ -12,8 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "dev",
-    "start": "node app.js"
+    "start": "node app.js ./token.json"
   },
   "repository": {
     "type": "git",

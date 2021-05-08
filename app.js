@@ -10,6 +10,10 @@ var cors = require('cors')
 
 app.use(cors())
 
+const TOKEN_ARG = 2;
+const tokenPath = process.argv[TOKEN_ARG];
+process.env.GOOGLE_APPLICATION_CREDENTIALS = tokenPath;
+
 async function main() {
     
     const gcsUri = 'gs://voice-note-io-audios/abc.flac';
@@ -54,7 +58,7 @@ app.post('/transcript',async (req, res) => {
 
     const [response] = await client.recognize(request);
     const transcription = response.results.map(result => result.alternatives[0].transcript).join('\n');
-    res.send( {"text": `${transcription}`});
+    res.send( {"text": response});
 })
 
 
