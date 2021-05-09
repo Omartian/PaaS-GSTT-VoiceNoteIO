@@ -58,7 +58,7 @@ app.post('/transcript',async (req, res) => {
 
     const [response] = await client.recognize(request);
     const transcription = response.results.map(result => result.alternatives[0].transcript).join('\n');
-    res.send( {"text": response});
+    res.send( response);
 })
 
 
