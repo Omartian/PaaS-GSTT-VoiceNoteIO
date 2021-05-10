@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const speech = require('@google-cloud/speech')
 const fs = require('fs');
 const app = express()
-const port = 8080
+const port = 8080;
 const client = new speech.SpeechClient();
 app.use(bodyParser.json());
 var cors = require('cors')
@@ -16,14 +16,13 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = tokenPath;
 
 async function main() {
     
-    const gcsUri = 'gs://voice-note-io-audios/abc.flac';
+    const gcsUri = 'gs://voice-note-io-audios/j9806yrnwbqGVmv-13.flac';
 
     const audio = {
         uri: gcsUri,
     };
     const config = {
         encoding: 'FLAC',
-        sampleRateHertz: 44100,
         languageCode: 'en-US',
         audioChannelCount: 2,
     };
@@ -47,7 +46,6 @@ app.post('/transcript',async (req, res) => {
     };
     const config = {
         encoding: 'FLAC',
-        sampleRateHertz: 44100,
         languageCode: 'en-US',
         audioChannelCount: 2,
     };
